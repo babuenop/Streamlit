@@ -9,6 +9,8 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt 
 
+st.title('Illustrating the Central Limit Theorem with Streamlit')
+
 perc_heads = st.number_input (label='Chance of coins landing on Heads', min_value = 0.0, max_value = 1.0, value = .25)
 graph_title = st.text_input (label='Graph Title')
 binom_dist = np.random.binomial(1, perc_heads ,1000)
