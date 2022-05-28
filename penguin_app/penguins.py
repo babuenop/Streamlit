@@ -13,7 +13,19 @@ selected_x_var = st.selectbox('What do want the x variable to be?',['bill_length
 selected_y_var = st.selectbox('What about the y?',['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 
 'body_mass_g'] )
 
-penguins_df = pd.read_csv('penguins.csv')
+# Uploaded_file 
+
+penguin_file = st.file_uploader('Select your Local Penguins CSV')
+
+# El siguiente codigo usa un condicional if-else con st.stop() en else 
+# para prevenir la entrada al app cuando esta corriendo el st.file_uploader() esta sin uso. 
+
+if penguin_file is not None:
+    penguins_df = pd.read_csv('penguins.csv')
+else: 
+    st.stop()
+
+# penguins_df = pd.read_csv('penguins.csv')
 # st.write(penguins_df.head())
 
 sns.set_style('darkgrid')
